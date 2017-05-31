@@ -1,0 +1,363 @@
+{
+	"groups": [
+		{
+			"keys": "red,yellow,map_6_jpg,map_10_jpg,map_11_jpg,map_12_jpg,map_13_jpg,map_14_jpg,map_15_jpg,map_16_jpg,map_17_jpg,map_18_jpg,map_19_jpg,map_20_jpg,map_7_jpg,map_8_jpg,map_9_jpg,blackwomen_json,littledog_json,shoppinggirl_json,blackwomen_png,littledog_png,shoppinggirl_png,shadowblue_json,shadowblue_png,map_2_jpg,map_3_jpg,map_4_jpg,map_5_jpg,newcoule_png,lion_json,buttongeny_png,buttonred_png,voice_png,lion_png,walkman_png,walkman_json,map_1_jpg,lamplong_json,lampshort_json,lamplong_png,lampshort_png,balloon_png,lamphalf_png,lamphalf_json",
+			"name": "preload"
+		},
+		{
+			"keys": "loading_png,loading_man_png,loading_man_json",
+			"name": "begin"
+		},
+		{
+			"keys": "map_21_jpg,map_22_jpg,map_23_jpg,map_24_jpg,map_25_jpg,map_26_jpg,map_27_jpg,map_28_jpg,map_29_jpg,map_30_jpg,map_31_jpg,map_32_jpg,map_33_jpg,map_34_jpg,map_35_jpg,map_36_jpg,map_37_jpg,map_38_jpg",
+			"name": "middle"
+		}
+	],
+	"resources": [
+		{
+			"url": "config/description.json",
+			"type": "image",
+			"name": "description_json"
+		},
+		{
+			"url": "sound/back.mp3",
+			"type": "sound",
+			"name": "back_mp3"
+		},
+		{
+			"url": "sound/back.mp3",
+			"type": "sound",
+			"name": "back2_mp3"
+		},
+		{
+			"url": "assets/loading.png",
+			"type": "image",
+			"name": "loading_png"
+		},
+		{
+			"url": "assets/red.png",
+			"type": "image",
+			"name": "red"
+		},
+		{
+			"url": "assets/yellow.png",
+			"type": "image",
+			"name": "yellow"
+		},
+		{
+			"url": "assets/map_05.jpg",
+			"type": "image",
+			"name": "map_5_jpg"
+		},
+		{
+			"url": "assets/map_06.jpg",
+			"type": "image",
+			"name": "map_6_jpg"
+		},
+		{
+			"url": "assets/map_10.jpg",
+			"type": "image",
+			"name": "map_10_jpg"
+		},
+		{
+			"url": "assets/map_11.jpg",
+			"type": "image",
+			"name": "map_11_jpg"
+		},
+		{
+			"url": "assets/map_12.jpg",
+			"type": "image",
+			"name": "map_12_jpg"
+		},
+		{
+			"url": "assets/map_13.jpg",
+			"type": "image",
+			"name": "map_13_jpg"
+		},
+		{
+			"url": "assets/map_14.jpg",
+			"type": "image",
+			"name": "map_14_jpg"
+		},
+		{
+			"url": "assets/map_15.jpg",
+			"type": "image",
+			"name": "map_15_jpg"
+		},
+		{
+			"url": "assets/map_16.jpg",
+			"type": "image",
+			"name": "map_16_jpg"
+		},
+		{
+			"url": "assets/map_17.jpg",
+			"type": "image",
+			"name": "map_17_jpg"
+		},
+		{
+			"url": "assets/map_18.jpg",
+			"type": "image",
+			"name": "map_18_jpg"
+		},
+		{
+			"url": "assets/map_19.jpg",
+			"type": "image",
+			"name": "map_19_jpg"
+		},
+		{
+			"url": "assets/map_20.jpg",
+			"type": "image",
+			"name": "map_20_jpg"
+		},
+		{
+			"url": "assets/map_21.jpg",
+			"type": "image",
+			"name": "map_21_jpg"
+		},
+		{
+			"url": "assets/map_22.jpg",
+			"type": "image",
+			"name": "map_22_jpg"
+		},
+		{
+			"url": "assets/map_23.jpg",
+			"type": "image",
+			"name": "map_23_jpg"
+		},
+		{
+			"url": "assets/map_24.jpg",
+			"type": "image",
+			"name": "map_24_jpg"
+		},
+		{
+			"url": "assets/map_25.jpg",
+			"type": "image",
+			"name": "map_25_jpg"
+		},
+		{
+			"url": "assets/map_26.jpg",
+			"type": "image",
+			"name": "map_26_jpg"
+		},
+		{
+			"url": "assets/map_27.jpg",
+			"type": "image",
+			"name": "map_27_jpg"
+		},
+		{
+			"url": "assets/map_28.jpg",
+			"type": "image",
+			"name": "map_28_jpg"
+		},
+		{
+			"url": "assets/map_29.jpg",
+			"type": "image",
+			"name": "map_29_jpg"
+		},
+		{
+			"url": "assets/map_30.jpg",
+			"type": "image",
+			"name": "map_30_jpg"
+		},
+		{
+			"url": "assets/map_31.jpg",
+			"type": "image",
+			"name": "map_31_jpg"
+		},
+		{
+			"url": "assets/map_32.jpg",
+			"type": "image",
+			"name": "map_32_jpg"
+		},
+		{
+			"url": "assets/map_33.jpg",
+			"type": "image",
+			"name": "map_33_jpg"
+		},
+		{
+			"url": "assets/map_34.jpg",
+			"type": "image",
+			"name": "map_34_jpg"
+		},
+		{
+			"url": "assets/map_35.jpg",
+			"type": "image",
+			"name": "map_35_jpg"
+		},
+		{
+			"url": "assets/map_36.jpg",
+			"type": "image",
+			"name": "map_36_jpg"
+		},
+		{
+			"url": "assets/map_37.jpg",
+			"type": "image",
+			"name": "map_37_jpg"
+		},
+		{
+			"url": "assets/map_38.jpg",
+			"type": "image",
+			"name": "map_38_jpg"
+		},
+		{
+			"url": "assets/map_02.jpg",
+			"type": "image",
+			"name": "map_2_jpg"
+		},
+		{
+			"url": "assets/map_03.jpg",
+			"type": "image",
+			"name": "map_3_jpg"
+		},
+		{
+			"url": "assets/map_04.jpg",
+			"type": "image",
+			"name": "map_4_jpg"
+		},
+		{
+			"url": "assets/map_07.jpg",
+			"type": "image",
+			"name": "map_7_jpg"
+		},
+		{
+			"url": "assets/map_08.jpg",
+			"type": "image",
+			"name": "map_8_jpg"
+		},
+		{
+			"url": "assets/map_09.jpg",
+			"type": "image",
+			"name": "map_9_jpg"
+		},
+		{
+			"url": "animate/blackwomen.json",
+			"type": "json",
+			"name": "blackwomen_json"
+		},
+		{
+			"url": "animate/littledog.json",
+			"type": "json",
+			"name": "littledog_json"
+		},
+		{
+			"url": "animate/shoppinggirl.json",
+			"type": "json",
+			"name": "shoppinggirl_json"
+		},
+		{
+			"url": "assets/blackwomen.png",
+			"type": "image",
+			"name": "blackwomen_png"
+		},
+		{
+			"url": "assets/littledog.png",
+			"type": "image",
+			"name": "littledog_png"
+		},
+		{
+			"url": "assets/shoppinggirl.png",
+			"type": "image",
+			"name": "shoppinggirl_png"
+		},
+		{
+			"url": "animate/shadowblue.json",
+			"type": "json",
+			"name": "shadowblue_json"
+		},
+		{
+			"url": "assets/shadowblue.png",
+			"type": "image",
+			"name": "shadowblue_png"
+		},
+		{
+			"url": "assets/newcoule.png",
+			"type": "image",
+			"name": "newcoule_png"
+		},
+		{
+			"url": "animate/lion.json",
+			"type": "json",
+			"name": "lion_json"
+		},
+		{
+			"url": "assets/voice.png",
+			"type": "image",
+			"name": "voice_png"
+		},
+		{
+			"url": "assets/buttongeny.png",
+			"type": "image",
+			"name": "buttongeny_png"
+		},
+		{
+			"url": "assets/buttonred.png",
+			"type": "image",
+			"name": "buttonred_png"
+		},
+		{
+			"url": "assets/lion.png",
+			"type": "image",
+			"name": "lion_png"
+		},
+		{
+			"url": "assets/walkman.png",
+			"type": "image",
+			"name": "walkman_png"
+		},
+		{
+			"url": "animate/walkman.json",
+			"type": "json",
+			"name": "walkman_json"
+		},
+		{
+			"url": "assets/loading_man.png",
+			"type": "image",
+			"name": "loading_man_png"
+		},
+		{
+			"url": "animate/loading_man.json",
+			"type": "json",
+			"name": "loading_man_json"
+		},
+		{
+			"url": "assets/map_01.jpg",
+			"type": "image",
+			"name": "map_1_jpg"
+		},
+		{
+			"url": "animate/lamplong.json",
+			"type": "json",
+			"name": "lamplong_json"
+		},
+		{
+			"url": "animate/lampshort.json",
+			"type": "json",
+			"name": "lampshort_json"
+		},
+		{
+			"url": "assets/lamplong.png",
+			"type": "image",
+			"name": "lamplong_png"
+		},
+		{
+			"url": "assets/lampshort.png",
+			"type": "image",
+			"name": "lampshort_png"
+		},
+		{
+			"url": "assets/balloon.png",
+			"type": "image",
+			"name": "balloon_png"
+		},
+		{
+			"url": "assets/lamphalf.png",
+			"type": "image",
+			"name": "lamphalf_png"
+		},
+		{
+			"url": "animate/lamphalf.json",
+			"type": "json",
+			"name": "lamphalf_json"
+		}
+	]
+}

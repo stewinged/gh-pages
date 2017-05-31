@@ -1,0 +1,1299 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>年货大街</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no"/>
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="full-screen" content="true"/>
+    <meta name="screen-orientation" content="portrait"/>
+    <meta name="x5-fullscreen" content="true"/>
+    <meta name="360-fullscreen" content="true"/>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/swiper.min.css">
+    <style>
+        html, body {
+            -ms-touch-action: none;
+            background: #888888;
+            padding: 0;
+            border: 0;
+            margin: 0;
+            height: 100%;
+            font-family:"Helvetica Neue";
+        }
+        p,div,em{ margin:0; padding:0; list-style: none;font-style:normal;}
+        /*根植处理*/
+        .clearfix:after{clear:both; content:''; font-size:0; display:block; visibility:hidden; height:0}
+        html, body { height: 100%;width: 100%;}
+        html { font-size: 100px;}
+        /*蛋*/
+        .con{
+            position: fixed;
+            z-index: 100;
+        }
+        .egg{
+            width: 100px;
+            position: fixed;
+            height:136px;
+            top: 30%;
+            left: 50%;
+            margin-left: -50px;
+            animation: eggDown 2s;
+            -webkit-animation: eggDown 2s;
+            z-index: 200;
+        }
+        .egg img{
+            width:100%;
+        }
+
+
+        @-webkit-keyframes eggDown {
+            0%,100%,60%,75%,90% {
+                -webkit-transition-timing-function: cubic-bezier(.215,.61,.355,1);
+                transition-timing-function: cubic-bezier(.215,.61,.355,1);
+            }
+
+            0% {
+                opacity: 0;
+                -webkit-transform: translate(0,-3000px);
+                transform: translate(0,-3000px);
+            }
+
+            60% {
+                opacity: 1;
+                -webkit-transform: translate(0,25px);
+                transform: translate(0,25px);
+            }
+
+            75% {
+                -webkit-transform: translate(0,-10px);
+                transform: translate(0,-10px);
+            }
+
+            90% {
+                -webkit-transform: translate(0,5px);
+                transform: translate(0,5px);
+            }
+
+            100% {
+                -webkit-transform: none;
+                transform: none;
+            }
+        }
+
+        @keyframes eggDown {
+            0%,100%,60%,75%,90% {
+                -webkit-transition-timing-function: cubic-bezier(.215,.61,.355,1);
+                transition-timing-function: cubic-bezier(.215,.61,.355,1);
+            }
+
+            0% {
+                opacity: 0;
+                -webkit-transform: translate(0,-3000px);
+                transform: translate(0,-3000px);
+                -ms-transform: translate(0,-3000px);
+            }
+
+            60% {
+                opacity: 1;
+                -webkit-transform: translate(0,25px);
+                transform: translate(0,25px);
+                -ms-transform: translate(0,25px);
+            }
+
+            75% {
+                -webkit-transform: translate(0,-10px);
+                transform: translate(0,-10px);
+                -ms-transform: translate(0,-10px);
+            }
+
+            90% {
+                -webkit-transform: translate(0,5px);
+                transform: translate(0,5px);
+                -ms-transform: translate(0,5px);
+            }
+
+            100% {
+                -webkit-transform: none;
+                transform: none;
+                -ms-transform: none;
+            }
+        }
+        .string1{
+            position: absolute;
+            top: -270px;
+            left: 50%;
+            margin-left: -10px;
+            z-index: 200;
+        }
+        .eggCon{
+            position: absolute;
+            z-index: 201;
+        }
+        .btnBon{
+            width:100%;
+            position: fixed;
+            left:0;
+            bottom:0;
+            display: none;
+            z-index:99;
+
+        }
+        .btnBon img{
+            width:100%;
+            display: block;
+        }
+        .btnBon div{
+            position: absolute;
+            width:21%;
+            height:74%;
+            /*background: #ccc;*/
+        }
+        .main{
+            left: 11%;
+            top: 13%;
+        }
+        .hot{
+            left: 40%;
+            top: 9%;
+        }
+        .spe{
+            left: 68%;
+            top: 13%;
+        }
+        /*弹窗*/
+        .w100{ width: 100%; display: block;}
+        .layer{ background:rgba(0,0,0,0.5); position:fixed; top:0; left:0; width:100%; height:100%; z-index:10;}
+        .layer_box{position:fixed; left:0; bottom: 0; z-index: 11;}
+        .close{background:url(img/close.png); position:absolute; right:20px;top:25px; background-size:100% 100%; width:25px; height:25px; display:block;}
+        .layer_box p{ margin:0; padding: 0;}
+        .wintxt{ width:100%;}
+        .pr{ position: relative;}
+        .win_bg{ padding-bottom: 2.2rem; background: #ae2a1e;}
+        .wzhi a{ width: 33.33%; height: 100%; top:0; position: absolute;}
+        .lt{ left:0;}
+        .ct{ left:33%;}
+        .rt{ right: 0;}
+        .weiz a{ width: 20%; height: 100%; position: absolute; top:0;}
+        .weiz a:nth-child(1){ left:0;}
+        .weiz a:nth-child(2){ left:20%;}
+        .weiz a:nth-child(3){ left:40%;}
+        .weiz a:nth-child(4){ left:60%;}
+        .weiz a:nth-child(5){ left:80%;}
+        /*优惠券*/
+
+        .box-in{
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.5);
+            z-index: 119;
+        }
+        .box-in-main{
+            border-radius: 0 0 5px 5px;
+            overflow: hidden;
+            height: 6.4rem;
+            overflow-y: scroll;
+            background-image:url(img/bg.png);
+            background-size:1.1rem 0.62rem;
+            margin-left: 0.35rem;
+            margin-right: 0.39rem;
+            text-align: center;
+        }
+        .hezi{ width:3.8rem; margin: 0 auto}
+        .fl{ float: left;}
+        .fr{ float: right;}
+        .guan{ padding:0 0.16rem; color:#bf8323; font-size: 0.8rem; }
+        .logo{ width:1rem; height: 1rem; border-radius: 50%;}
+        .elm{ width:2rem; height: 0.6rem; border:none; margin-top: 0.2rem;}
+        .txtcon{  text-align: center;color: #bf8323; font-size: 0.36rem; padding:0.1rem 0;}
+        .quan{ width:4.5rem; height: 1.8rem; background: url(img/quan.png) no-repeat; background-size:100% 100%; margin:0 auto;}
+        .quan.other{width:5.84rem; height: 2.58rem;background: url(img/bg_4.png) no-repeat; background-size:100% 100%;}
+        .quan.other.bg{width:5.84rem; height: 2.58rem;background: url(img/quan.png) no-repeat; background-size:100% 100%;}
+        .quan.other p:nth-child(1){font-size: 0.48rem; font-weight:bold; color:#fff; padding-top: 0.66rem;}
+        .quan.other p:nth-child(1) em{ color:#fffd35;font-weight:bold;}
+        .quan.other p:nth-child(2){font-weight:bold;font-size: 0.45rem;}
+        .quan.other p:nth-child(2).one{ font-size: 0.44rem;}
+        .zi{ width:5.84rem; text-align: left; margin:0.2rem auto; color:#bf8323}
+        .quan p{ width: 4.2rem; color:#fff; font-size: 0.35rem; font-weight:bold;}
+        .quan p:nth-child(1){ padding: 0.4rem 0 0 0.45rem; text-align: left;}
+        .quan p:nth-child(2){  padding: 0 0 0 0.45rem; text-align: left;}
+        .quan p:nth-child(2) em{ color:#fffd35;font-size: 0.5rem; font-weight: bold;}
+        .shuom{width:5.88rem; height: 4.45rem; background: url(img/bg_3.png) no-repeat; background-size:100% 100%; margin:0 auto;}
+        .shuom p:nth-child(1){ font-size: 0.36rem; color:#fff; padding-top:0.55rem;}
+        .shuom p:nth-child(2){ font-size: 0.52rem; font-weight: bold; color:#fffd35; padding-top:0.1rem;}
+        .shuom p:nth-child(3){ font-size: 0.36rem;color:#fff;padding-top:0.48rem;}
+        .shuom p:nth-child(4){ font-size: 0.36rem; color:#fff;}
+        .shuom p:nth-child(4) em{ font-size: 0.42rem; color:#fffd35;}
+        .shuom p:nth-child(5){ font-size: 0.4rem; background: #fff; margin:0.28rem auto 0; color:#f4542d; width: 2.4rem; height: 0.72rem; text-align: center; line-height: 0.72rem;}
+        .txtcon_box{ padding:0 0.4rem 0.15rem; font-size: 0.28rem; background: url(img/bg_2.png) no-repeat; background-size: 100% 100%; color: #bf8323; text-align: left;}
+        .txtcon_box.other p:nth-child(1){ font-size: 0.26rem;}
+        .txtcon_box p:nth-child(1){ text-align: center;font-size: 0.35rem; padding-top: 0.2rem;}
+        .txtcon_box p:nth-child(1) span{ display: inline-block; vertical-align: middle; width:1.5rem; height: 1px; background: #bf8323;}
+        .txtcon_box p:nth-child(1) span:nth-child(1){ margin-right: 0.3rem;}
+        .txtcon_box p:nth-child(1) span:nth-child(2){ margin-left: 0.3rem;}
+        .txtcon_box p{ line-height: 0.5rem;}
+        .ccj{ width:1.4rem; height: 1.4rem; display: block; margin:0 auto; padding:0.3rem 0 0.2rem 0;}
+        .shuom p:nth-child(2).other{ color:#fff; }
+        .shuom p:nth-child(3).yellow{ font-size: 0.6rem; padding-top: 0.2rem; color:#fffd35; font-weight: bold;}
+        .box_w{ position: relative; width:5.88rem; margin:0.4rem auto 0.3rem;}
+        .num,.num.other{padding:0;position: absolute;top:0; margin: 0; border: none;left:1.6rem; height: 100%;background: none; }
+        .num{ width:4.2rem;   }
+        .num.other{ width:1.8rem}
+        .go_box.pb{ padding-bottom: 0.3rem;}
+        .link{ height: 100%; width:2.2rem; position: absolute; top:0; right: 0;}
+        .ftIn{
+            font-size:0.4rem;
+        }
+        .loadbg img{
+            width:100%;
+        }
+    </style>
+    <div style="display:none;">
+    <script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1256092095'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s95.cnzz.com/z_stat.php%3Fid%3D1256092095' type='text/javascript'%3E%3C/script%3E"));</script>
+</div>
+    <script type="text/javascript">
+        var deviceWidth = document.documentElement.clientWidth;
+        if(deviceWidth > 750) deviceWidth = 750;
+        document.documentElement.style.fontSize = deviceWidth / 7.5 + 'px';
+    </script>
+
+    <!--这个标签为通过egret提供的第三方库的方式生成的 javascript 文件。删除 modules_files 标签后，库文件加载列表将不会变化，请谨慎操作！-->
+    
+      <script type="text/javascript" src=" https://static.chuchujie.com/libs/jquery/2.1.4/jquery.min.js"></script>
+      <script type="text/javascript" src="https://static.chuchujie.com/libs/ccj_js_bridge/2.0/ccj_js_bridge.min.js"></script>
+    <!--modules_files_start-->
+	<script egret="lib" src="libs/modules/egret/egret.js" src-release="libs/modules/egret/egret.min.js"></script>
+	<script egret="lib" src="libs/modules/egret/egret.web.js" src-release="libs/modules/egret/egret.web.min.js"></script>
+	<script egret="lib" src="libs/modules/game/game.js" src-release="libs/modules/game/game.min.js"></script>
+	<script egret="lib" src="libs/modules/game/game.web.js" src-release="libs/modules/game/game.web.min.js"></script>
+	<script egret="lib" src="libs/modules/res/res.js" src-release="libs/modules/res/res.min.js"></script>
+	<script egret="lib" src="libs/modules/tween/tween.js" src-release="libs/modules/tween/tween.min.js"></script>
+	<!--modules_files_end-->
+
+    <!--这个标签为不通过egret提供的第三方库的方式使用的 javascript 文件，请将这些文件放在libs下，但不要放在modules下面。-->
+    <!--other_libs_files_start-->
+    <!--other_libs_files_end-->
+
+    <!--这个标签会被替换为项目中所有的 javascript 文件。删除 game_files 标签后，项目文件加载列表将不会变化，请谨慎操作！-->
+    <!--game_files_start-->
+	<script egret="game" src="bin-debug/LoadingUI.js"></script>
+	<script egret="game" src="bin-debug/Main.js"></script>
+	<script egret="game" src="bin-debug/TouchEvent.js"></script>
+	<!--game_files_end-->
+</head>
+<body>
+<div  class="loadbg" style="background: #fd3c46; position: fixed; left:0; top:0; z-index:98;">
+</div>
+
+    <div style="margin: auto;width: 100%;height: 100%;" class="egret-player"
+         data-entry-class="Main"
+        data-orientation="auto"
+        data-scale-mode="fixedWidth"
+        data-frame-rate="60"
+        data-content-width="750"
+        data-content-height="1136"
+        data-show-paint-rect="false"
+        data-multi-fingered="1"
+        data-show-fps="false" data-show-log="false"
+        data-show-fps-style="x:0,y:0,size:12,textColor:0xffffff,bgAlpha:0.9" id="canva">
+    </div>
+
+    <div id="egg" class="con">
+        <img src="img/string.png" class="string1" style="width:7px;" alt="">
+        <img src="img/egg.png" class="eggCon" style="width:100%;" alt="">
+    </div>
+    <div class="btnBon" style="display: none;">
+        <img src="img/bottom.png" alt="">
+        <div class="main"></div>
+        <div class="hot"></div>
+        <div class="spe"></div>
+    </div>
+    <!--签到弹窗start css是单引得 还引了swiper-->
+    <div class="sign-in contBox">
+        <i class="close popupclose"></i>
+        <img src="img/top.png"/>
+        <div class="sign-in-main">
+            <p class="coupon-txt">今日可领取优惠券：1张</p>
+            <p class="item-tit">【明日签到，领取更大优惠券】</p>
+
+            <!--导航-->
+            <ul class="nav-bar clearfix">
+                <li class="cur">尝年味</li>
+                <li>换新衣</li>
+                <li>丽人馆</li>
+                <li>有里有面</li>
+                <li>萌娃过大年</li>
+                <li>团员宴</li>
+                <li>迎新家</li>
+                <li>回家路上</li>
+            </ul>
+            <div class="swiper-container swiper-container-horizontal swiper-container-android" id="couponBody">
+                <div class="swiper-wrapper">
+                    <!--尝年味-->
+
+                    <div class=" clearfix swiper-slide swiper-slide-prev">
+                        <ul class="coupon-box clearfix">
+                            <li>
+                                <div class="coupon">
+                                    <img src="img/couConent.png"/>
+                                    <div class="price">
+                                        <div class="clearfix txt5">
+                                            <span class="txt1">35</span>
+                                            <div class="txt4">
+                                                <span class="txt2">满199可用</span>
+                                                <span class="txt3">RMB</span>
+                                            </div>
+                                        </div>
+                                        <p class="txt6">尝年味尝年味尝年味尝年味尝年味</p>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="coupon">
+                                    <img src="img/couConent.png"/>
+                                    <div class="price">
+                                        <div class="clearfix txt5">
+                                            <span class="txt1">5</span>
+                                            <div class="txt4">
+                                                <span class="txt2">满199可用</span>
+                                                <span class="txt3">RMB</span>
+                                            </div>
+                                        </div>
+                                        <p class="txt6">韩都衣舍旗舰店</p>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="coupon">
+                                    <img src="img/couConent.png"/>
+                                    <div class="price">
+                                        <div class="clearfix txt5">
+                                            <span class="txt1">5</span>
+                                            <div class="txt4">
+                                                <span class="txt2">满199可用</span>
+                                                <span class="txt3">RMB</span>
+                                            </div>
+                                        </div>
+                                        <p class="txt6">韩都衣舍旗舰店</p>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="coupon">
+                                    <img src="img/couConent.png"/>
+                                    <div class="price">
+                                        <div class="clearfix txt5">
+                                            <span class="txt1">5</span>
+                                            <div class="txt4">
+                                                <span class="txt2">满199可用</span>
+                                                <span class="txt3">RMB</span>
+                                            </div>
+                                        </div>
+                                        <p class="txt6">韩都衣舍旗舰店</p>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="coupon">
+                                    <img src="img/couConent.png"/>
+                                    <div class="price">
+                                        <div class="clearfix txt5">
+                                            <span class="txt1">35</span>
+                                            <div class="txt4">
+                                                <span class="txt2">满199可用</span>
+                                                <span class="txt3">RMB</span>
+                                            </div>
+                                        </div>
+                                        <p class="txt6">尝年味尝年味尝年味尝年味尝年味</p>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="coupon">
+                                    <img src="img/couConent.png"/>
+                                    <div class="price">
+                                        <div class="clearfix txt5">
+                                            <span class="txt1">5</span>
+                                            <div class="txt4">
+                                                <span class="txt2">满199可用</span>
+                                                <span class="txt3">RMB</span>
+                                            </div>
+                                        </div>
+                                        <p class="txt6">韩都衣舍旗舰店</p>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="coupon">
+                                    <img src="img/couConent.png"/>
+                                    <div class="price">
+                                        <div class="clearfix txt5">
+                                            <span class="txt1">5</span>
+                                            <div class="txt4">
+                                                <span class="txt2">满199可用</span>
+                                                <span class="txt3">RMB</span>
+                                            </div>
+                                        </div>
+                                        <p class="txt6">韩都衣舍旗舰店</p>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="coupon">
+                                    <img src="img/couConent.png"/>
+                                    <div class="price">
+                                        <div class="clearfix txt5">
+                                            <span class="txt1">5</span>
+                                            <div class="txt4">
+                                                <span class="txt2">满199可用</span>
+                                                <span class="txt3">RMB</span>
+                                            </div>
+                                        </div>
+                                        <p class="txt6">韩都衣舍旗舰店</p>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                        <div class="go_box"><p class="go">去「常年味」会场逛逛</p></div>
+                        <div class="txt_box"><p>签到1天可领1张,2天可领2张,连续3天及以上领取3张</p></div>
+                    </div>
+
+                    <!--换新衣-->
+                    <div class=" clearfix swiper-slide swiper-slide-prev">
+                        <ul class="coupon-box clearfix">
+                            <li>
+                                <div class="coupon">
+                                    <img src="img/couConent.png"/>
+                                    <div class="price">
+                                        <div class="clearfix txt5">
+                                            <span class="txt1">35</span>
+                                            <div class="txt4">
+                                                <span class="txt2">满199可用</span>
+                                                <span class="txt3">RMB</span>
+                                            </div>
+                                        </div>
+                                        <p class="txt6">换新衣换新衣换新衣换新衣换新衣换新衣</p>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="coupon">
+                                    <img src="img/couConent.png"/>
+                                    <div class="price">
+                                        <div class="clearfix txt5">
+                                            <span class="txt1">5</span>
+                                            <div class="txt4">
+                                                <span class="txt2">满199可用</span>
+                                                <span class="txt3">RMB</span>
+                                            </div>
+                                        </div>
+                                        <p class="txt6">韩都衣舍旗舰店</p>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="coupon">
+                                    <img src="img/couConent.png"/>
+                                    <div class="price">
+                                        <div class="clearfix txt5">
+                                            <span class="txt1">5</span>
+                                            <div class="txt4">
+                                                <span class="txt2">满199可用</span>
+                                                <span class="txt3">RMB</span>
+                                            </div>
+                                        </div>
+                                        <p class="txt6">韩都衣舍旗舰店</p>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="coupon">
+                                    <img src="img/couConent.png"/>
+                                    <div class="price">
+                                        <div class="clearfix txt5">
+                                            <span class="txt1">5</span>
+                                            <div class="txt4">
+                                                <span class="txt2">满199可用</span>
+                                                <span class="txt3">RMB</span>
+                                            </div>
+                                        </div>
+                                        <p class="txt6">韩都衣舍旗舰店</p>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="coupon">
+                                    <img src="img/couConent.png"/>
+                                    <div class="price">
+                                        <div class="clearfix txt5">
+                                            <span class="txt1">35</span>
+                                            <div class="txt4">
+                                                <span class="txt2">满199可用</span>
+                                                <span class="txt3">RMB</span>
+                                            </div>
+                                        </div>
+                                        <p class="txt6">换新衣换新衣换新衣换新衣换新衣换新衣</p>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="coupon">
+                                    <img src="img/couConent.png"/>
+                                    <div class="price">
+                                        <div class="clearfix txt5">
+                                            <span class="txt1">5</span>
+                                            <div class="txt4">
+                                                <span class="txt2">满199可用</span>
+                                                <span class="txt3">RMB</span>
+                                            </div>
+                                        </div>
+                                        <p class="txt6">韩都衣舍旗舰店</p>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="coupon">
+                                    <img src="img/couConent.png"/>
+                                    <div class="price">
+                                        <div class="clearfix txt5">
+                                            <span class="txt1">5</span>
+                                            <div class="txt4">
+                                                <span class="txt2">满199可用</span>
+                                                <span class="txt3">RMB</span>
+                                            </div>
+                                        </div>
+                                        <p class="txt6">韩都衣舍旗舰店</p>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="coupon">
+                                    <img src="img/couConent.png"/>
+                                    <div class="price">
+                                        <div class="clearfix txt5">
+                                            <span class="txt1">5</span>
+                                            <div class="txt4">
+                                                <span class="txt2">满199可用</span>
+                                                <span class="txt3">RMB</span>
+                                            </div>
+                                        </div>
+                                        <p class="txt6">韩都衣舍旗舰店</p>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                        <div class="go_box"><p class="go">去「换新衣」会场逛逛</p></div>
+                        <div class="txt_box"><p>签到1天可领1张,2天可领2张,连续3天及以上领取3张</p></div>
+                    </div>
+                    <!--丽人馆-->
+                    <div class=" clearfix swiper-slide swiper-slide-prev">
+                        <ul class="coupon-box clearfix">
+                            <li>
+                                <div class="coupon">
+                                    <img src="img/couConent.png"/>
+                                    <div class="price">
+                                        <div class="clearfix txt5">
+                                            <span class="txt1">35</span>
+                                            <div class="txt4">
+                                                <span class="txt2">满199可用</span>
+                                                <span class="txt3">RMB</span>
+                                            </div>
+                                        </div>
+                                        <p class="txt6">丽人馆丽人馆丽人馆丽人馆丽人馆</p>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="coupon">
+                                    <img src="img/couConent.png"/>
+                                    <div class="price">
+                                        <div class="clearfix txt5">
+                                            <span class="txt1">5</span>
+                                            <div class="txt4">
+                                                <span class="txt2">满199可用</span>
+                                                <span class="txt3">RMB</span>
+                                            </div>
+                                        </div>
+                                        <p class="txt6">韩都衣舍旗舰店</p>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="coupon">
+                                    <img src="img/couConent.png"/>
+                                    <div class="price">
+                                        <div class="clearfix txt5">
+                                            <span class="txt1">5</span>
+                                            <div class="txt4">
+                                                <span class="txt2">满199可用</span>
+                                                <span class="txt3">RMB</span>
+                                            </div>
+                                        </div>
+                                        <p class="txt6">韩都衣舍旗舰店</p>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="coupon">
+                                    <img src="img/couConent.png"/>
+                                    <div class="price">
+                                        <div class="clearfix txt5">
+                                            <span class="txt1">5</span>
+                                            <div class="txt4">
+                                                <span class="txt2">满199可用</span>
+                                                <span class="txt3">RMB</span>
+                                            </div>
+                                        </div>
+                                        <p class="txt6">韩都衣舍旗舰店</p>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                        <div class="go_box"><p class="go">去「丽人馆」会场逛逛</p></div>
+                        <div class="txt_box"><p>签到1天可领1张,2天可领2张,连续3天及以上领取3张</p></div>
+                    </div>
+                    <!--有里有面-->
+                    <div class=" clearfix swiper-slide swiper-slide-prev">
+                        <ul class="coupon-box clearfix">
+                            <li>
+                                <div class="coupon">
+                                    <img src="img/couConent.png"/>
+                                    <div class="price">
+                                        <div class="clearfix txt5">
+                                            <span class="txt1">35</span>
+                                            <div class="txt4">
+                                                <span class="txt2">满199可用</span>
+                                                <span class="txt3">RMB</span>
+                                            </div>
+                                        </div>
+                                        <p class="txt6">有里有面有里有面有里有面</p>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="coupon">
+                                    <img src="img/couConent.png"/>
+                                    <div class="price">
+                                        <div class="clearfix txt5">
+                                            <span class="txt1">5</span>
+                                            <div class="txt4">
+                                                <span class="txt2">满199可用</span>
+                                                <span class="txt3">RMB</span>
+                                            </div>
+                                        </div>
+                                        <p class="txt6">韩都衣舍旗舰店</p>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="coupon">
+                                    <img src="img/couConent.png"/>
+                                    <div class="price">
+                                        <div class="clearfix txt5">
+                                            <span class="txt1">5</span>
+                                            <div class="txt4">
+                                                <span class="txt2">满199可用</span>
+                                                <span class="txt3">RMB</span>
+                                            </div>
+                                        </div>
+                                        <p class="txt6">韩都衣舍旗舰店</p>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="coupon">
+                                    <img src="img/couConent.png"/>
+                                    <div class="price">
+                                        <div class="clearfix txt5">
+                                            <span class="txt1">5</span>
+                                            <div class="txt4">
+                                                <span class="txt2">满199可用</span>
+                                                <span class="txt3">RMB</span>
+                                            </div>
+                                        </div>
+                                        <p class="txt6">韩都衣舍旗舰店</p>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                        <div class="go_box"><p class="go">去「有里有面」会场逛逛</p></div>
+                        <div class="txt_box"><p>签到1天可领1张,2天可领2张,连续3天及以上领取3张</p></div>
+                    </div>
+                    <!--萌娃过大年-->
+                    <div class=" clearfix swiper-slide swiper-slide-prev">
+                        <ul class="coupon-box clearfix">
+                            <li>
+                                <div class="coupon">
+                                    <img src="img/couConent.png"/>
+                                    <div class="price">
+                                        <div class="clearfix txt5">
+                                            <span class="txt1">35</span>
+                                            <div class="txt4">
+                                                <span class="txt2">满199可用</span>
+                                                <span class="txt3">RMB</span>
+                                            </div>
+                                        </div>
+                                        <p class="txt6">萌娃过大年萌娃过大年萌娃过大年萌娃过大年</p>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="coupon">
+                                    <img src="img/couConent.png"/>
+                                    <div class="price">
+                                        <div class="clearfix txt5">
+                                            <span class="txt1">5</span>
+                                            <div class="txt4">
+                                                <span class="txt2">满199可用</span>
+                                                <span class="txt3">RMB</span>
+                                            </div>
+                                        </div>
+                                        <p class="txt6">韩都衣舍旗舰店</p>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="coupon">
+                                    <img src="img/couConent.png"/>
+                                    <div class="price">
+                                        <div class="clearfix txt5">
+                                            <span class="txt1">5</span>
+                                            <div class="txt4">
+                                                <span class="txt2">满199可用</span>
+                                                <span class="txt3">RMB</span>
+                                            </div>
+                                        </div>
+                                        <p class="txt6">韩都衣舍旗舰店</p>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="coupon">
+                                    <img src="img/couConent.png"/>
+                                    <div class="price">
+                                        <div class="clearfix txt5">
+                                            <span class="txt1">5</span>
+                                            <div class="txt4">
+                                                <span class="txt2">满199可用</span>
+                                                <span class="txt3">RMB</span>
+                                            </div>
+                                        </div>
+                                        <p class="txt6">韩都衣舍旗舰店</p>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                        <div class="go_box"><p class="go">去「萌娃过大年」会场逛逛</p></div>
+                        <div class="txt_box"><p>签到1天可领1张,2天可领2张,连续3天及以上领取3张</p></div>
+                    </div>
+                    <!--团圆宴-->
+                    <div class=" clearfix swiper-slide swiper-slide-prev">
+                        <ul class="coupon-box clearfix">
+                            <li>
+                                <div class="coupon">
+                                    <img src="img/couConent.png"/>
+                                    <div class="price">
+                                        <div class="clearfix txt5">
+                                            <span class="txt1">35</span>
+                                            <div class="txt4">
+                                                <span class="txt2">满199可用</span>
+                                                <span class="txt3">RMB</span>
+                                            </div>
+                                        </div>
+                                        <p class="txt6">团圆宴团圆宴团圆宴团圆宴</p>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="coupon">
+                                    <img src="img/couConent.png"/>
+                                    <div class="price">
+                                        <div class="clearfix txt5">
+                                            <span class="txt1">5</span>
+                                            <div class="txt4">
+                                                <span class="txt2">满199可用</span>
+                                                <span class="txt3">RMB</span>
+                                            </div>
+                                        </div>
+                                        <p class="txt6">韩都衣舍旗舰店</p>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="coupon">
+                                    <img src="img/couConent.png"/>
+                                    <div class="price">
+                                        <div class="clearfix txt5">
+                                            <span class="txt1">5</span>
+                                            <div class="txt4">
+                                                <span class="txt2">满199可用</span>
+                                                <span class="txt3">RMB</span>
+                                            </div>
+                                        </div>
+                                        <p class="txt6">韩都衣舍旗舰店</p>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="coupon">
+                                    <img src="img/couConent.png"/>
+                                    <div class="price">
+                                        <div class="clearfix txt5">
+                                            <span class="txt1">5</span>
+                                            <div class="txt4">
+                                                <span class="txt2">满199可用</span>
+                                                <span class="txt3">RMB</span>
+                                            </div>
+                                        </div>
+                                        <p class="txt6">韩都衣舍旗舰店</p>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                        <div class="go_box"><p class="go">去「团员宴」会场逛逛</p></div>
+                        <div class="txt_box"><p>签到1天可领1张,2天可领2张,连续3天及以上领取3张</p></div>
+                    </div>
+                    <!--迎新家-->
+                    <div class=" clearfix swiper-slide swiper-slide-prev">
+                        <ul class="coupon-box clearfix">
+                            <li>
+                                <div class="coupon">
+                                    <img src="img/couConent.png"/>
+                                    <div class="price">
+                                        <div class="clearfix txt5">
+                                            <span class="txt1">35</span>
+                                            <div class="txt4">
+                                                <span class="txt2">满199可用</span>
+                                                <span class="txt3">RMB</span>
+                                            </div>
+                                        </div>
+                                        <p class="txt6">迎新家迎新家迎新家迎新家迎新家</p>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="coupon">
+                                    <img src="img/couConent.png"/>
+                                    <div class="price">
+                                        <div class="clearfix txt5">
+                                            <span class="txt1">5</span>
+                                            <div class="txt4">
+                                                <span class="txt2">满199可用</span>
+                                                <span class="txt3">RMB</span>
+                                            </div>
+                                        </div>
+                                        <p class="txt6">韩都衣舍旗舰店</p>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="coupon">
+                                    <img src="img/couConent.png"/>
+                                    <div class="price">
+                                        <div class="clearfix txt5">
+                                            <span class="txt1">5</span>
+                                            <div class="txt4">
+                                                <span class="txt2">满199可用</span>
+                                                <span class="txt3">RMB</span>
+                                            </div>
+                                        </div>
+                                        <p class="txt6">韩都衣舍旗舰店</p>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="coupon">
+                                    <img src="img/couConent.png"/>
+                                    <div class="price">
+                                        <div class="clearfix txt5">
+                                            <span class="txt1">5</span>
+                                            <div class="txt4">
+                                                <span class="txt2">满199可用</span>
+                                                <span class="txt3">RMB</span>
+                                            </div>
+                                        </div>
+                                        <p class="txt6">韩都衣舍旗舰店</p>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                        <div class="go_box"><p class="go">去「迎新家」会场逛逛</p></div>
+                        <div class="txt_box"><p>签到1天可领1张,2天可领2张,连续3天及以上领取3张</p></div>
+                    </div>
+                    <!--回家路上-->
+                    <div class=" clearfix swiper-slide swiper-slide-prev">
+                        <ul class="coupon-box clearfix">
+                            <li>
+                                <div class="coupon">
+                                    <img src="img/couConent.png"/>
+                                    <div class="price">
+                                        <div class="clearfix txt5">
+                                            <span class="txt1">35</span>
+                                            <div class="txt4">
+                                                <span class="txt2">满199可用</span>
+                                                <span class="txt3">RMB</span>
+                                            </div>
+                                        </div>
+                                        <p class="txt6">回家路上回家路上回家路上回家路上</p>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="coupon">
+                                    <img src="img/couConent.png"/>
+                                    <div class="price">
+                                        <div class="clearfix txt5">
+                                            <span class="txt1">5</span>
+                                            <div class="txt4">
+                                                <span class="txt2">满199可用</span>
+                                                <span class="txt3">RMB</span>
+                                            </div>
+                                        </div>
+                                        <p class="txt6">韩都衣舍旗舰店</p>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="coupon">
+                                    <img src="img/couConent.png"/>
+                                    <div class="price">
+                                        <div class="clearfix txt5">
+                                            <span class="txt1">5</span>
+                                            <div class="txt4">
+                                                <span class="txt2">满199可用</span>
+                                                <span class="txt3">RMB</span>
+                                            </div>
+                                        </div>
+                                        <p class="txt6">韩都衣舍旗舰店</p>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="coupon">
+                                    <img src="img/couConent.png"/>
+                                    <div class="price">
+                                        <div class="clearfix txt5">
+                                            <span class="txt1">5</span>
+                                            <div class="txt4">
+                                                <span class="txt2">满199可用</span>
+                                                <span class="txt3">RMB</span>
+                                            </div>
+                                        </div>
+                                        <p class="txt6">韩都衣舍旗舰店</p>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                        <div class="go_box"><p class="go">去「回家路上」会场逛逛</p></div>
+                        <div class="txt_box"><p>签到1天可领1张,2天可领2张,连续3天及以上领取3张</p></div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <!--签到弹窗 end-->
+    <!--分会场弹窗 start-->
+    <div class="container popuplayer contBox" style="display: none;">
+        <div class="layer"></div>
+        <div class="layer_box">
+            <i class="close popupclose"></i>
+            <img class="w100" src="img/win_1.png"/>
+            <div class="win_bg">
+                <p class="pr wzhi">
+                    <img class="w100" src="img/win_2.png"/>
+                    <a class="lt" href="javascript:;"></a>
+                    <a class="ct" href="javascript:;"></a>
+                    <a class="rt" href="javascript:;"></a>
+                </p>
+                <p class="pr weiz">
+                    <img class="w100" src="img/win_3.png"/>
+                    <a href="javascript:;"></a>
+                    <a href="javascript:;"></a>
+                    <a href="javascript:;"></a>
+                    <a href="javascript:;"></a>
+                    <a href="javascript:;"></a>
+                </p>
+            </div>
+
+        </div>
+    </div>
+    <!--分会场弹窗 end-->
+    <!--娱乐城弹窗-->
+    <div class="box-in contBox" style="display: none;">
+        <i class="close popupclose"></i>
+        <img class="w100" src="img/top.png"/>
+        <div class="box-in-main">
+            <div class="clearfix hezi">
+                <img class="logo fl" src="img/logo.png"/>
+                <span class="guan fl">x</span>
+                <img class="elm fr" src="img/elm.png"/>
+            </div>
+            <p class="txtcon">美好生活，触手可得</p>
+            <div class="quan">
+                <p>暖心红包任性撒</p>
+                <p>最高<em>35元</em>礼包</p>
+            </div>
+            <div class="txtcon_box">
+                <p><span></span>活动规则<span></span></p>
+                <p>1、发放至手机号的红包需下载饿了么App用手机 号注册，或将手机号绑定至已注册的饿了么账户后才可使用 </p>
+                <p>2、使用红包时的下单手机号需为抢红包时使用的手机号</p>
+                <p>3、红包仅限在线支付时使用，每张订单仅限使用</p>
+            </div>
+        </div>
+    </div>
+    <!--娱乐城样式一弹窗-->
+    <div class="box-in contBox" style="display:none;">
+        <i class="close popupclose"></i>
+        <img class="w100" src="img/top.png"/>
+        <div class="box-in-main">
+            <div class="clearfix hezi">
+                <img class="logo fl" src="img/logo.png"/>
+                <span class="guan fl">x</span>
+                <img class="elm fr" src="img/baidu.png"/>
+            </div>
+            <p class="txtcon">百度音乐 听到极制</p>
+            <div class="shuom">
+                <p>恭喜获得百度音乐</p>
+                <p>7天白金会员体验权</p>
+                <p>12Q456W89E1234TY</p>
+                <p>请<em>即刻截图</em>保存兑换码</p>
+                <p>点击兑换</p>
+            </div>
+            <div class="txtcon_box">
+                <p><span></span>活动规则<span></span></p>
+                <p>1、发放至手机号的红包需下载饿了么App用手机 号注册，或将手机号绑定至已注册的饿了么账户后才可使用 </p>
+                <p>2、使用红包时的下单手机 </p>
+            </div>
+        </div>
+    </div>
+    <!--娱乐城样式二弹窗-->
+    <div class="box-in contBox" style="display:none;">
+        <i class="close popupclose"></i>
+        <img class="w100" src="img/top.png"/>
+        <div class="box-in-main">
+            <div class="clearfix hezi">
+                <img class="logo fl" src="img/logo.png"/>
+                <span class="guan fl">x</span>
+                <img class="elm fr" src="img/zabx.png"/>
+            </div>
+            <p class="txtcon">让保险有温度</p>
+            <div class="quan other">
+                <p>免费<em>春运保障险</em></p>
+                <p>给旅途添点温度</p>
+            </div>
+            <div class="zi">
+                <p>涵盖春运所有可能使用的交通工具</p>
+                <p>个人物品损失给客户全方位保护</p>
+            </div>
+            <div class="quan other bg">
+                <p>免费电信诈骗险</p>
+                <p class="one">受骗赔付<em>10000元</em></p>
+            </div>
+            <div class="txtcon_box other">
+
+                <p>年关将至注意防骗 10000元受骗补偿金免费领</p>
+            </div>
+        </div>
+    </div>
+    <!--娱乐城样式三弹窗-->
+    <div class="box-in contBox" style="display:none;">
+        <i class="close popupclose"></i>
+        <img class="w100" src="img/top.png"/>
+        <div class="box-in-main">
+            <div class="clearfix hezi">
+                <img class="logo fl" src="img/logo.png"/>
+                <span class="guan fl">x</span>
+                <img class="elm fr" src="img/zabx.png"/>
+            </div>
+            <p class="txtcon">让保险有温度</p>
+            <div class="quan other" >
+                <p>免费退货包邮卡</p>
+                <p>每日限量<em>2017张</em></p>
+
+            </div>
+            <div class="zi">
+                <p>顺丰2小时上门取件 尊享“懒人退货”</p>
+            </div>
+            <div class="quan other">
+                <p>免费电信诈骗险</p>
+                <p>受骗赔付<em>10000元</em></p>
+
+            </div>
+            <div class="zi">
+                <p>年关将至注意防骗 10000元受骗补偿金免费领</p>
+            </div>
+            <div class="quan other bg"  style="background: url(img/money.png) no-repeat; background-size: 100% 100%;">
+                <p style="font-size:0.42rem;">女性<em>高发疾病保障</em></p>
+                <p style="font-size:0.42rem;">守护女人貌美如花</p>
+            </div>
+            <div class="zi">
+                <p>涵盖春运所有可能使用的交通工具 </p>
+                <p>个人物品损失给客户全方位保护</p>
+            </div>
+            <div class="txtcon_box">
+                <p><span></span>活动规则<span></span></p>
+                <p>1、发放至手机号的红包需下载饿了么App用手机 号注册，或将手机号绑定至已注册的饿了么账户后才可使用  </p>
+                <p>2、使用红包时的下单手机</p>
+            </div>
+        </div>
+    </div>
+    <!-- 外投弹窗 一start-->
+    <div class="box-in contBox" style="display:none;">
+        <i class="close popupclose"></i>
+        <img class="w100" src="img/top.png"/>
+        <div class="box-in-main">
+            <div class="shuom">
+                <img class="ccj" src="img/logo.png"/>
+                <p class="other">5折承包你的年货 </p>
+                <p class="yellow">抢12元新人红包 </p>
+            </div>
+            <div class="go_box"><p class="go">我是新用户  抢红包 ></p></div>
+            <div class="go_box"><p class="go">我是老用户  打开APP ></p></div>
+            <div class="txtcon_box">
+                <p><span></span>红包使用说明<span></span></p>
+                <p>1、红包使用时间为领取后的48小时内有效 </p>
+                <p>2、可购买楚楚街APP上的任意商品时使用(秒杀商品、拼团商品、话费除外)。</p>
+                <p>3、红包可与店铺优惠券叠加使用，红包金额不折现,不找零，不退还,不延期。</p>
+            </div>
+        </div>
+    </div>
+    <!-- 外投弹窗 一 end-->
+    <!-- 外投弹窗二start-->
+    <div class="box-in contBox" style="display:none;">
+        <i class="close popupclose"></i>
+        <img class="w100" src="img/top.png"/>
+        <div class="box-in-main">
+            <div class="shuom">
+                <img class="ccj" src="img/logo.png"/>
+                <p class="yellow">恭喜你 </p>
+                <p class="yellow">获得12元新人红包  </p>
+            </div>
+            <div class="go_box"><p class="go">下载楚楚街APP  抢年货 ></p></div>
+
+            <div class="txtcon_box">
+                <p><span></span>红包使用说明<span></span></p>
+                <p>1、红包使用时间为领取后的48小时内有效，在我的→红包/优惠券中查看。</p>
+                <p>2、可购买楚楚街APP上的任意商品时使用（秒杀商品、拼团商品、话费除外）。</p>
+                <p>3、红包可与店铺优惠券叠加使用，红包金额不折现，不找零，不退还，不延期。</p>
+                <p>4、如有任何疑问可咨询楚楚街官方客服400-687-5588</p>
+            </div>
+        </div>
+    </div>
+    <!-- 外投弹窗 二 end-->
+    <!-- 外投弹窗三start-->
+    <div class="box-in contBox" style="display:none;">
+        <i class="close popupclose"></i>
+        <img class="w100" src="img/top.png"/>
+        <div class="box-in-main">
+            <div class="shuom">
+                <img class="ccj" src="img/logo.png"/>
+                <p class="other">5折承包你的年货  </p>
+                <p class="yellow">抢12元新人红包 </p>
+            </div>
+            <div class="box_w">
+                <img src="img/num.png"/>
+                <input class="num ftIn" type="text"/>
+            </div>
+            <div class="box_w">
+                <img src="img/yzm.png"/>
+                <input class="num other ftIn" type="text"/>
+                <a class="link" href="javascript:;"></a>
+            </div>
+            <div class="go_box pb"><p class="go">下载楚楚街APP  抢年货 ></p></div>
+
+
+        </div>
+    </div>
+    <!-- 外投弹窗 三 end-->
+    <!--蒙层-->
+    <div class="container popuplayer contBox" style="display: none;">
+        <div class="layer"></div>
+    </div>
+    <script>
+        /**
+         * {
+         * "renderMode":, //引擎渲染模式，"canvas" 或者 "webgl"
+         * "audioType": "" //使用的音频类型，0:默认，1:qq audio，2:web audio，3:audio
+         * "antialias": //WebGL模式下是否开启抗锯齿，true:开启，false:关闭，默认为false
+         * }
+         **/
+        egret.runEgret({renderMode:"canvas", audioType:0});
+
+    </script>
+    <script src="js/swiper-3.3.1.jquery.min.js"></script>
+   
+    <script>
+        $(function(){
+            var clientW = document.documentElement.clientWidth || document.body.clientWidth;
+            var clientH = document.documentElement.clientHeight || document.body.clientHeight;
+            $('.loadbg').css({
+                width:clientW,
+                height:clientH
+            })
+            var img = new Image();
+            if(sessionStorage.getItem("srcData")){
+                img.src=sessionStorage.getItem("srcData");
+            }else{
+                img.src='img/loading.png';
+            }
+            $('.loadbg').append(img);
+
+            //->初始化Swiper
+            var sw = new Swiper(".swiper-container", {
+                direction: "horizontal",
+                loop: true, //->当屏幕切换结束后执行 swipe:当前Swiper的一个实例
+                freeMode:false,
+                touchRatio:0.5,
+                longSwipesRatio:0.1,
+                threshold:50,
+                followFinger:false,
+                observer:true,//修改swiper自己或子元素时，自动初始化swiper
+                observeParents:true,//修改swiper的父元素时，自动初始化swiper
+                onSlideChangeEnd: function(swiper){
+                    //alert(swiper.activeIndex) //切换结束时，告诉我现在是第几个slide
+                    var index = swiper.activeIndex;
+                    if(index == 8 || index == 0){
+                        index = 8;
+                    }
+                    if(index == 9){
+                        index = 1;
+                    }
+                    //console.log(index)
+                    $('.nav-bar li').eq(index-1).addClass('cur').siblings().removeClass('cur')
+                }
+
+            })
+            /*tab栏切换*/
+            $('.nav-bar li').on('click',function(){
+                $(this).addClass('cur');
+                $(this).siblings().removeClass('cur');
+                sw.slideTo($(this).index()+1, 1000, false);//切换到第一个slide，速度为1秒
+
+            })
+            //点击关闭
+            $('.popupclose').on('click',function(){
+                $(this).parents('.contBox').hide();
+            })
+
+            $('.main').on('click',function () {
+               //主会场
+
+            })
+            $('.hot').on('click',function () {
+                //最热好店
+                $('.box-in').eq(6).show();
+            })
+            $('.spe').on('click',function () {
+                //分会场
+                $('.container').show();
+            })
+
+        });
+    </script>
+</body>
+</html>
